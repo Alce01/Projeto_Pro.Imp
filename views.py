@@ -1,10 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
-views = Blueprint("views")
+views = Blueprint(__name__, "views")
 
 @views.route("/")
 def home():
-    return "home page"
-
-if __name__ == '__main__':
-    views.run(debug=True, port=8000)
+    return render_template("index.html", name="Tim")
