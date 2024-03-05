@@ -7,7 +7,13 @@
     <title>home</title>
 </head>
 <body>
-    <div><h1>Home Page</h1></div>
-    <p>Hello, {{ name }}</p>
+    {% block content %}
+    <div><h1>Home Page</h1> 
+    <p>Hello, bolots {{ user }}</p>
+    {% end block %}
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
 </body>
 </html>
+
+<!-- dentro do div fica tudo dentro do h1 vc escreve o titulo; e do p o subtítulo-->
