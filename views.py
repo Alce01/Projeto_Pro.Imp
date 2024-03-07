@@ -10,7 +10,7 @@ def home():
 def profile():
     args = request.args
     user = args.get('user')
-    return render_template("index.html", user=user)
+    return render_template("profile.html", user=user)
 
 @views.route("/json")
 def get_json():
