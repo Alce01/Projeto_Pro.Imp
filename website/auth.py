@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from website import db
 
 auth = Blueprint('auth', __name__)
 
@@ -13,7 +13,7 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    return render_template("home.html")
+    return redirect(url_for('views.home'))
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -32,7 +32,9 @@ def sign_up():
         elif len(password1) != 12:
             flash('A senha deve ter 12 números', category='error')
         else:
-            new_user = User(email=email, firstName=firstName, password=generate_password_hash(password1), method='sha256')
+            new_user = User(email=email, first_name=firstName, password=password1)
+            db.session.add(new_user)
+            db.session.commit()
             flash('Conta criada!', category='success')
-
+            return redirect(url_for('views.home'))
     return render_template("sign_up.html")
