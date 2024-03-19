@@ -15,7 +15,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('O login foi um sucesso!', category='success')
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.profile'))
             else:
                 flash('senha incorreta, tente de novo.', category='error')
         else:
