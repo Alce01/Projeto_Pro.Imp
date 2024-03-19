@@ -10,8 +10,7 @@ def login():
 
 @auth.route('/logout')
 def logout():
-    redirect(url_for("home.get_json"))
-
+    return render_template("home.html")
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
