@@ -17,8 +17,8 @@ def login():
                 flash('O login foi um sucesso!', category='success')
             else:
                 flash('senha incorreta, tente de novo.', category='error')
-    else:
-        flash('O email não existe', category='error')
+        else:
+            flash('O email não existe', category='error')
     
     return render_template("login.html", boolean=True, user="Usuário", password="Senha")
 
@@ -48,7 +48,7 @@ def sign_up():
         elif len(password1) != 12:
             flash('A senha deve ter 12 números', category='error')
         else:
-            new_user = User(email=email, first_name=first_name, password=password1)
+            new_user = User(email=email, first_name=first_name, password=generate_password_hash('pbkdf2:sha256'))
             db.session.add(new_user)
             db.session.commit()
             flash('Conta criada!', category='success')
