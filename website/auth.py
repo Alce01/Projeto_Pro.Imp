@@ -31,6 +31,6 @@ def sign_up():
             flash('A senha deve ter 12 números', category='error')
 
         else:
-            flash('Conta criada!', category='sucess')
+            flash('Conta criada!', category='success')
 
     return render_template("sign_up.html")
