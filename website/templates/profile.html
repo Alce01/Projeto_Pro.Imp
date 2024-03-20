@@ -27,7 +27,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      {% if password[0] == 0 %}
+      {{password}}
+
+      {% if password[0] == 1 %}
         <div class="collapse navbar-collapse" id="navbar">
           <div class="navbar-nav">
               <a class="nav-item nav-link" id="sign-up" href="/sign-up">Cadastro de pacientes</a>
@@ -35,7 +37,7 @@
               <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           </div>
         </div>
-      {% else %}
+      {% elif password[0] == 0 %}
         <div class="collapse navbar-collapse" id="navbar">
           <div class="navbar-nav">
               <a class="nav-item nav-link" id="pacientes" href="/exames">Exames</a>
