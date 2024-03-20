@@ -14,13 +14,21 @@ def home():
 @login_required
 def profile():
     user_password = session.get('user_password')
+    password = session.get('password')
+
+    session['password'] = password
+
     return render_template("profile.html", user=current_user, password=user_password)
 
 @views.route('/pacientes')
 @login_required
 def pacientes():
     user_password = session.get('user_password')
-    return render_template('pacientes.html')
+    password = session.get('password')
+
+    session['password'] = password
+
+    return render_template("pacientes.html", user=current_user, password=user_password)
 
 @views.route('/exames', methods=['GET', 'POST'])
 def exames():

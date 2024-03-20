@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from website import db
@@ -11,15 +11,20 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-
+        user = User.query.filter_by(password=password).first()
         user = User.query.filter_by(email=email).first()
+
         if user:
             if check_password_hash(user.password, password):
                 flash('O login foi um sucesso!', category='success')
                 login_user(user, remember=True)
-                password(user, remember=True)
-
-                return redirect(url_for('views.profile'))
+                session['password'] = password
+                if password[0] == "1":
+                    return redirect(url_for('views.profile'))
+                elif password[0] == "0":
+                    return redirect(url_for('views.pacientes'))
+                else:
+                    return password
             else:
                 flash('senha incorreta, tente de novo.', category='error')
         else:
