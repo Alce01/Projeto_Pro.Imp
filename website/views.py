@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, session
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from website import db
@@ -13,9 +13,11 @@ def home():
 @views.route('/profile')
 @login_required
 def profile():
-    return render_template("profile.html", user=current_user)
+    user_password = session.get('user_password')
+    return render_template("profile.html", user=current_user, password=user_password)
 
 @views.route('/pacientes')
+@login_required
 def pacientes():
     return render_template('pacientes.html')
 

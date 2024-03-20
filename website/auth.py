@@ -24,7 +24,7 @@ def login():
         else:
             flash('O email não existe', category='error')
     
-    return render_template("login.html", boolean=True, user="Usuário", password="Senha")
+    return render_template("login.html", boolean=True, user= "user", password="password")
 
 @auth.route('/logout')
 @login_required
@@ -33,6 +33,7 @@ def logout():
     return redirect(url_for('views.home'))
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
+@login_required
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
