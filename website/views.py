@@ -19,6 +19,7 @@ def profile():
 @views.route('/pacientes')
 @login_required
 def pacientes():
+    user_password = session.get('user_password')
     return render_template('pacientes.html')
 
 @views.route('/exames', methods=['GET', 'POST'])
