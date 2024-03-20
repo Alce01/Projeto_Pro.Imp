@@ -12,3 +12,7 @@ def home():
 def profile():
     return render_template("profile.html", user=current_user)
 
+@views.route('/pacientes')
+def pacientes():
+    return render_template('pacientes.html')
+
