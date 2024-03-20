@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% from 'login.html' import password %}
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,12 +28,22 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      {% set first_char = password[0] %}
+      {% if first_char.isdigit(1) %}
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
             <a class="nav-item nav-link" id="sign-up" href="/sign-up">Cadastro de pacientes</a>
             <a class="nav-item nav-link" id="pacientes" href="/pacientes">Pacientes</a>
             <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
         </div>
+      </div>
+      {% else %}
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" id="pacientes" href="/exames">Exames</a>
+            <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+        </div>
+      {% endif %}
       </div>
     </nav>
     <div class="container">{% block content %} {% endblock %}</div>
