@@ -28,19 +28,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" id="Inicio" href="/">Home</a>
-          <a class="nav-item nav-link" id="login" href="/login">Login</a>
+          <a class="nav-item nav-link" id="login" href="/logout">Logout</a>
         </div>
       </div>
-    </nav>
-
-    <head>
-    
+    </nav> {% block title %}{% endblock %}
+{% block content %}
+<html>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-        
-        <link
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -50,28 +47,20 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles.css">
-
-    </head>
-
-
-     <h1 align="center">
-             Olá!
-
-     </h1>
-               <h2 align="center">
-    Sejam bem-vindos a plataforma de conexão entre profissionais da saúde e seus pacientes                                    
-               </h2>
-             <h2 align="center">Veja as Unidades de Atendimento da UPE!</h2><br /> 
-              <h3 align="center">CISAM</h3>
-                <h3 align="center">
-                    <img src="https://th.bing.com/th/id/OIP.fnD3WKzvrFw_z_MXHkgiVwHaFj?w=334&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="border-radius: 40px;"></h3>
-                      <h3 align="center"><br /> PROCAPE</h3>
-                     <h2 align="center">
-                        <img src="https://th.bing.com/th/id/OIP.6AXIx8H8GZUR1IB6DvQXHwHaDt?w=334&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="border-radius: 40px;" ></h2>
-              <h3 align="center"><br /> Hospital Universitário Oswaldo Cruz</h3>
-                  <h3 align="center">
-                      <img  src="https://th.bing.com/th/id/OIP.5oRNR1ZVYVaoBoXqPhUSvwHaFj?w=334&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="border-radius: 40px;" ></img>
-                </h3>
+    /></head>
+    <br />
+    <h3 align="center">Seus exames:</h3>
+    <a href= "document.getElementById('uploadBtn').files[0]" action="download" name="uploadBtn" type="file" id="uploadBtn">
+        <h3 align="center"><button  class="btn btn-success">Download do Arquivo</button></h3>
+<script>
+    function baixarArquivo() {
+        const url = 'pdfile';
+        const nomeArquivo = 'url.pdf';
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = nomeArquivo;
+        link.click();
+    }
+</script>
 </html>
+{% endblock %}

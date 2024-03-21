@@ -18,3 +18,9 @@ Paciente
 
 
 INSPIREM-SE em sistemas de laboratórios como CERPE, LUCILO MAGALHÃES, ...
+
+pip install
+flask
+flasksqlalchemy
+flask-login
+jinja2
