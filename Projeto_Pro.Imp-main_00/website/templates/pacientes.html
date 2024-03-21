@@ -41,9 +41,10 @@
             <td>Juliana Danzi</td>
             <td>jddaf@poli</td>
             <td>012012012012</td>
-            <td><button class="btn btn-success"><form action="/upload" method="post" enctype="multipart/form-data">
-              <input type="file" name="pdfFile" accept=".pdf">
-              <input type="submit" value="Enviar PDF">
+            <td><input type="file" id="uploadBtn">
+              <button onclick="redirecionar()">Enviar</button>
+          
+          </button></td>
           </tr>
           <tr>
             <th scope="row">3</th>
@@ -56,6 +57,14 @@
           </tr>
         </tbody>
       </table></div>
+    <script>
+       function redirecionar(){
+
+        const aquivo= document.getElementById('uploadBtn').files[0];
+        window.location.href = 'paginacliente.html';
+       }
+
+    </script></head>
     
     
     
