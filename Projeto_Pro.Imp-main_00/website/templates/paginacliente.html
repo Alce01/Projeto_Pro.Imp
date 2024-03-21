@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    /></head>
+    <h1 align="center">Perfil paciente</h1>
+    <br />
+    <h3 align="center">Seus exames:</h3>
+    <a href= "document.getElementById('uploadBtn').files[0]" action="download" name="uploadBtn" type="file" id="uploadBtn">
+        <h3 align="center"><button  class="btn btn-success">Download do Arquivo</button></h3>
+<script>
+    function baixarArquivo() {
+        const url = 'pdfile';
+        const nomeArquivo = 'url.pdf';
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = nomeArquivo;
+        link.click();
+    }
+</script>
+   
+
+    
+</html>
