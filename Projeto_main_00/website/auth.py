@@ -11,11 +11,10 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        user = User.query.filter_by(password=password).first()
         user = User.query.filter_by(email=email).first()
 
         if user:
-            if check_password_hash(user.password, password):
+            if check_password_hash(user.password,password):
                 flash('O login foi um sucesso!', category='success')
                 login_user(user, remember=True)
                 session['password'] = password
@@ -23,8 +22,6 @@ def login():
                     return redirect(url_for('views.profile'))
                 elif password[0] == "0":
                     return redirect(url_for('views.pacientes'))
-                else:
-                    return password
             else:
                 flash('senha incorreta, tente de novo.', category='error')
         else:

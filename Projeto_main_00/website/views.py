@@ -34,3 +34,12 @@ def pacientes():
 def exames():
     return render_template('exames.html')
 
+@views.route('/paginacliente')
+def paginacliente():
+    user_password = session.get('user_password')
+    password = session.get('password')
+
+    session['password'] = password
+
+    return render_template("paginacliente.html", user=current_user, password=user_password)
+
